@@ -10,7 +10,8 @@ import cv2
 import requests
 import speech_recognition as sr
 import keyboard
-
+from PIL import Image
+from tkinter import filedialog
 from time import sleep
 from config import key
 import requests
