@@ -9,13 +9,13 @@ import time
 def wishMe():
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
-        speak.speak("Good Morning Ma'am!")
+        speak.speak("Good Morning!")
 
     elif hour>=12 and hour<18:
-      speak.speak("Good Afternoon Ma'am!")
+      speak.speak("Good Afternoon!")
 
     else:
-        speak.speak("Good Evening Ma'am!")
+        speak.speak("Good Evening!")
 
 
 def User_send():
