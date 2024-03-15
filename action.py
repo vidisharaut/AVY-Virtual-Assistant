@@ -239,16 +239,40 @@ def Action(send) :
         pyautogui.hotkey('ctrl', 'shift', 'delete')
     elif 'close chrome' in data_btn:       #Execution Successful
         os.system("taskkill /f /im chrome.exe")
+        
+    # elif "take screenshot" in data_btn:
+    #         speak.speak("Sir, Please tell me the name for the screenshot file")
+    #         name = takeCommand()
+    #         print(name)
+    #         speak.speak("Taking Screenshot...!")
+    #         time.sleep(2)
+    #         img = pyautogui.screenshot()
+    #         img.save(f"{name}.png")
+    #         speak.speak("ScreenShot Saved...!")
+    #         return "ScreenShot Saved...!"
     elif "take screenshot" in data_btn:
-            speak.speak("Sir, Please tell me the name for the screenshot file")
+        speak.speak("Please select the folder where you want to save the screenshot.")
+        folder_path = filedialog.askdirectory()
+        if folder_path:
+            speak.speak("Please tell me what should be the name for the screenshot file")
             name = takeCommand()
             print(name)
             speak.speak("Taking Screenshot...!")
             time.sleep(2)
             img = pyautogui.screenshot()
-            img.save(f"{name}.png")
-            speak.speak("ScreenShot Saved...!")
-            return "ScreenShot Saved...!"
+            file_path = os.path.join(folder_path, f"{name}.png")
+            img.save(file_path)
+            speak.speak("Screenshot Saved...Opening Screenshot!")
+            
+            # Open the saved screenshot using PIL
+            saved_image = Image.open(file_path)
+            saved_image.show()  # Display the saved screenshot
+            
+            return "Screenshot Saved...opening Screenshot!"
+        else:
+            return "No folder selected. Screenshot not saved."
+
+    
     elif 'wikipedia' in data_btn:       #Execution Successful       --incomplete Work
         speak.speak('Searching Wikipedia...')
         results = wikipedia.summary(data_btn, sentences=2)
