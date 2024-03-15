@@ -115,10 +115,14 @@ def Action(send) :
         os.system("shutdown /s /t 5")
         return "ok sir" 
 #11
-    elif "lock the system" in data_btn:       #Execution Successful
+    # elif "lock the system" in data_btn:       #Execution Successful
+    #     speak.speak("Locking the system...")
+    #     os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
+    #     return "System Locked" 
+    elif "lock the system" in data_btn:
         speak.speak("Locking the system...")
-        os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
-        return "System Locked" 
+        ctypes.windll.user32.LockWorkStation()
+        return "System Locked"
 #12
     elif "restart the system" in data_btn:       #Not Executed
         speak.speak("Restarting the system...")
