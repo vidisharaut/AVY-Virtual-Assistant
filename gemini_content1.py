@@ -3,7 +3,7 @@ import requests
 
 def chat1(chat):
     messages = []
-    system_message = "You are an AI Virtual Assistant created by Vidisha, Yakuta, Akshada, your name is AVY."
+    system_message = "You are an AI Virtual Assistant created by Yakuta, Akshada, Vidisha your name is AVY."
     message = { "role" : "user", "parts" : [{"text": 'give me the answer of ' + system_message + " " + chat +  'in maximum of 40 words' }]}
     messages.append(message)
     data = {'contents' : messages}
@@ -15,5 +15,5 @@ def chat1(chat):
     print(t3)
 
 if __name__ == "__main__":
-    chat = "cwho is ms dhoni"
+    chat = "who is ms dhoni"
     chat1(chat)
