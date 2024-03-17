@@ -62,6 +62,11 @@ def add_data_to_sheet_speech():
         return response
     except Exception as e:
         return f"Error adding data to Google Sheets: {str(e)}"
+        
+def show_tableau_dashboard():
+    # Replace 'YOUR_TABLEAU_DASHBOARD_URL' with the actual URL of your Tableau dashboard
+    tableau_dashboard_url = 'https://public.tableau.com/views/TodoListTask/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link'
+    webbrowser.open(tableau_dashboard_url)
 
 def square_spiral():
     pyautogui.click() 
