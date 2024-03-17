@@ -162,31 +162,26 @@ def Action(send) :
         url = 'https://youtube.com/'
         webbrowser.get().open(url)
         speak.speak("Opening YouTube") 
-        return "Opening YouTube"   
-#7 
-    # elif 'close youtube' in data_btn:       #Execution Unsuccessful
-    #     os.system("taskkill /f /im msedge.exe")
-    #     speak.speak("Opening YouTube") 
-    #     return "Opening YouTube"  
-#8   
+        return "Opening YouTube"     
+#7   
     elif 'weather' in data_btn :       #Execution Successful
        ans   = weather.Weather()
        speak.speak(ans) 
        return ans
-#9
+#8
     elif 'music from my laptop' in data_btn:        #Not Executed
         url = 'D:\\music' 
         songs = os.listdir(url)
         os.startfile(os.path.join(url, songs[0]))
         speak.speak("songs playing...")
         return "songs playing..."       
- #10   
+ #9   
     #Vidisha's changes: 
     elif "shutdown" in data_btn:       #Execution Successful
         speak.speak("Shuting Down")
         os.system("shutdown /s /t 5")
         return "ok sir" 
-#11
+#10
     # elif "lock the system" in data_btn:       #Execution Successful
     #     speak.speak("Locking the system...")
     #     os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
@@ -195,82 +190,59 @@ def Action(send) :
         speak.speak("Locking the system...")
         ctypes.windll.user32.LockWorkStation()
         return "System Locked"
-#12
+#11
     elif "restart the system" in data_btn:       #Not Executed
         speak.speak("Restarting the system...")
         os.system("shutdown /r /t 5")
         return "Restarting the system..." 
+#12
+    elif "open" in data_btn:
+        Nameoftheapp = data_btn.replace("open ","")
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write(Nameoftheapp)
+        sleep(1)
+        keyboard.press('enter')
+        sleep(0.5)  
+        return True
 #13
-    elif "open command" in data_btn:       #Execution Successful
-        speak.speak("Opening Command Prompt")
-        os.system("start cmd")
-        return "Opening Command Prompt"
-#14
     elif "close command prompt" in data_btn:       #Execution Successful
         text = "Closing Command Prompt"
         speak.speak(text)
         os.system("taskkill /f /im cmd.exe")
         return text
-#15
-    # elif "open notepad" in data_btn:       #Execution Successful
-    #     npath = r"C:\Windows\System32\notepad.exe" 
-    #     text = "Opening Notepad"
-    #     speak.speak(text)
-    #     os.startfile(npath)
-    #     return text
-#16
+#14
     elif "close notepad" in data_btn:       #Execution Successful
         text = "Closing NotePad"
         speak.speak(text)
         os.system("taskkill /f /im notepad.exe")
         return text
-#17
-    elif "open microsoft word" in data_btn:       #Execution Successful
-        text = "Opening Microsoft Word"
-        speak.speak(text)
-        npath = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
-        os.startfile(npath)
-        return text
-#18
+#15
     elif "close microsoft word" in data_btn:       #Execution Successful
         text1 = "Closing Microsoft Word"
         speak.speak(text1)
         os.system("wmic process where \"name='winword.exe'\" delete")
         return text1
-#19
-    elif "open microsoft excel" in data_btn:       #Execution Successful
-        text = "Opening Microsoft Excel"
-        speak.speak(text)
-        npath = r"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
-        os.startfile(npath)
-        return text
-#20
+#16
     elif "close microsoft excel" in data_btn:       #Execution Successful
         text1 = "Closing microsoft excel"
         speak.speak(text1)
         os.system("taskkill /f /im excel.exe")
         return text1
-#21
-    elif "open microsoft powerpoint" in data_btn:       #Execution Successful
-        text = "Opening Microsoft Powerpoint"
-        speak.speak(text)
-        npath = r"C:\Program Files\Microsoft Office\root\Office16\POWERPNT.EXE"
-        os.startfile(npath)
-        return text
-#22
+#17
     elif "close microsoft powerpoint" in data_btn:       #Execution Successful
         text1 = "Closing Powerpoint"
         speak.speak(text1)
         os.system("taskkill /f /im powerpnt.exe")
         return text1
-#23
+#18
     elif 'open chrome' in data_btn:       #Execution Successful
         text = "Opening Google Chrome"
         speak.speak(text)
         npath = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         os.startfile(npath)
         return text
-#24
+#19
     elif 'maximize this window' in data_btn:       #Execution Successful
         text = 'Maximizing this window'
         speak.speak(text)
@@ -278,44 +250,49 @@ def Action(send) :
         time.sleep(1)
         pyautogui.press('x')
         return text
-#25
+#20
     elif 'google search' in data_btn:       #Execution Successful but need to clear history
         data_btn = data_btn.replace("google search", "")
         pyautogui.hotkey('alt', 'd')
         pyautogui.write(f"{data_btn}", 0.1)
         pyautogui.press('enter')
-#26
+#21
     elif 'open new window' in data_btn:       #Execution Successful 
         pyautogui.hotkey('ctrl', 'n')
 
-#27
+#22
     elif 'open incognito window' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'shift', 'n')
-#28
+#23
     elif 'minimise this window' in data_btn:       #Execution Successful
         pyautogui.hotkey('alt', 'space')
         time.sleep(1)
         pyautogui.press('n')
-#29
+#24
     elif 'open history' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'h')
-#30
+#25
     elif 'open downloads' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'j')
-#31
+#26
     elif 'previous tab' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'shift', 'tab')
+#27
     elif 'next tab' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'tab')
+#28
     elif 'close tab' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'w')
+#29
     elif 'close window' in data_btn:       #Execution Successful
         pyautogui.hotkey('ctrl', 'shift', 'w')
+#30
     elif 'clear browsing history' in data_btn:       #Execution Successful 
         pyautogui.hotkey('ctrl', 'shift', 'delete')
+#31
     elif 'close chrome' in data_btn:       #Execution Successful
         os.system("taskkill /f /im chrome.exe")
-        
+#32
     # elif "take screenshot" in data_btn:
     #         speak.speak("Sir, Please tell me the name for the screenshot file")
     #         name = takeCommand()
@@ -347,43 +324,26 @@ def Action(send) :
             return "Screenshot Saved...opening Screenshot!"
         else:
             return "No folder selected. Screenshot not saved."
-
-    
+#33
     elif 'wikipedia' in data_btn:       #Execution Successful       --incomplete Work
         speak.speak('Searching Wikipedia...')
         results = wikipedia.summary(data_btn, sentences=2)
         speak.speak("According to Wikipedia")
         speak.speak(results)
         return results
-    elif "open camera" in data_btn:       #Execution Successful
-        cap = cv2.VideoCapture(0)
-        while True:
-            ret, img = cap.read()
-            cv2.imshow('webcam', img)
-            k = cv2.waitKey(50)
-            if k==27:
-                break;
-        cap.release()
-        cv2.destroyAllWndows()
+#34
     elif "turn the volume up" in data_btn:       #Execution Successful
         pyautogui.press("volumeup")
+#35
     elif "turn the volume down" in data_btn:       #Execution Successful
         pyautogui.press("volumedown")
+#36
     elif "mute" in data_btn:       #Execution Successful
         pyautogui.press("volumemute")
+#37
     elif "stop" in data_btn:
         exit()
-
-    elif "open" in data_btn:
-        Nameoftheapp = data_btn.replace("open ","")
-        pyautogui.press('win')
-        sleep(1)
-        keyboard.write(Nameoftheapp)
-        sleep(1)
-        keyboard.press('enter')
-        sleep(0.5)  
-        return True
-
+#38
     elif "draw square spiral" in data_btn:
         pyautogui.press('win')
         sleep(1)
@@ -394,7 +354,7 @@ def Action(send) :
         move_cursor()
         sleep(0.5)
         square_spiral()
-
+#39
     elif "draw square" in data_btn:
         pyautogui.press('win')
         sleep(1)
@@ -405,7 +365,7 @@ def Action(send) :
         move_cursor()
         sleep(0.5)
         drawSquare()
-
+#40
     elif "draw house" in data_btn:
         pyautogui.press('win')
         sleep(1)
@@ -416,7 +376,7 @@ def Action(send) :
         move_cursor()
         sleep(0.5)
         drawHouse()
-
+#41
     elif "make a note":
         pyautogui.press('win')
         sleep(1)
