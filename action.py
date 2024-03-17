@@ -417,6 +417,17 @@ def Action(send) :
         sleep(0.5)
         drawHouse()
 
+    elif "make a note":
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('notepad')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        speak.speak('What to note?')
+        text = takeCommand()
+        pyautogui.write(text) 
+
     else :
         try:
             res = chat1(data_btn)
