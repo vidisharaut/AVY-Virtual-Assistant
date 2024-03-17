@@ -196,16 +196,7 @@ def Action(send) :
         speak.speak("Restarting the system...")
         os.system("shutdown /r /t 5")
         return "Restarting the system..." 
-#12
-    elif "open" in data_btn:
-        Nameoftheapp = data_btn.replace("open ","")
-        pyautogui.press('win')
-        sleep(1)
-        keyboard.write(Nameoftheapp)
-        sleep(1)
-        keyboard.press('enter')
-        sleep(0.5)  
-        return True
+
 #13
     elif "close command prompt" in data_btn:       #Execution Successful
         text = "Closing Command Prompt"
@@ -388,6 +379,17 @@ def Action(send) :
         speak.speak('What to note?')
         text = takeCommand()
         pyautogui.write(text) 
+
+#12
+    elif "open" in data_btn:
+        Nameoftheapp = data_btn.replace("open ","")
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write(Nameoftheapp)
+        sleep(1)
+        keyboard.press('enter')
+        sleep(0.5)  
+        return True
 
     else :
         try:
