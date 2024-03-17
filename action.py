@@ -15,6 +15,7 @@ from tkinter import filedialog
 from time import sleep
 from config import key
 import requests
+import ctypes
 
 def square_spiral():
     pyautogui.click() 
