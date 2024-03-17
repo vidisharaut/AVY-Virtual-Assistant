@@ -1,0 +1,44 @@
+-> command 
+
+1. time now
+2.how are you
+3.thankyou
+4. play music or song 
+5. open google
+6. open youtube
+7. weather
+8. music from my laptop  -- In progress
+9. shutdown
+10. Lock the System
+11. Restart the System
+12. Open [name of the app/files]
+13. Close Command prompt
+14. Close NotePad
+15. close microsoft word
+16. close microsoft excel
+17. close microsoft powerpoint
+18. open chrome
+19. maximize this window
+20. google search
+21. open new window
+22. open incognito window
+23. minimise this window
+24. open history
+25. open downloads
+26. previous tab
+27. next tab
+28. close tab
+29. close window
+30. clear browsing history
+31. close chrome
+32. take screenshot
+33. wikipedia
+34. turn the volume up
+35. turn the volume down
+36. mute
+37. stop
+38. draw square spiral
+39. draw square
+40. draw house
+41. make a note
+42. GeminiAI
