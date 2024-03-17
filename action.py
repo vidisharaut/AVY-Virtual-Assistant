@@ -441,6 +441,14 @@ def Action(send) :
         keyboard.press('enter')
         sleep(0.5)  
         return True
+        
+    elif "update to do list" in data_btn:
+        response = add_data_to_sheet_speech()
+        return response
+    
+    elif "show me my progress" in data_btn:
+        show_tableau_dashboard()
+        return "Opening Tableau dashboard..."
 
     else :
         try:
