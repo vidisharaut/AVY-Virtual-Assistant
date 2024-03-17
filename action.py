@@ -419,6 +419,18 @@ def Action(send) :
         move_cursor()
         sleep(0.5)
         drawHouse()
+
+#12
+    elif "open" in data_btn:
+        Nameoftheapp = data_btn.replace("open ","")
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write(Nameoftheapp)
+        sleep(1)
+        keyboard.press('enter')
+        sleep(0.5)  
+        return True
+        
 #41
     elif "make a note":
         pyautogui.press('win')
@@ -431,16 +443,7 @@ def Action(send) :
         text = takeCommand()
         pyautogui.write(text) 
 
-#12
-    elif "open" in data_btn:
-        Nameoftheapp = data_btn.replace("open ","")
-        pyautogui.press('win')
-        sleep(1)
-        keyboard.write(Nameoftheapp)
-        sleep(1)
-        keyboard.press('enter')
-        sleep(0.5)  
-        return True
+
         
     elif "update to do list" in data_btn:
         response = add_data_to_sheet_speech()
