@@ -16,6 +16,52 @@ from time import sleep
 from config import key
 import requests
 import ctypes
+import gspread
+from google.oauth2.service_account import Credentials
+from google.auth.transport.requests import Request
+
+
+def get_google_sheet():
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    creds = Credentials.from_service_account_file('credentials.json', scopes=scope)
+    client = gspread.authorize(creds)
+    sheet_id = '19KSBOcqj-F3rPvMqkw4EQe5xA5UI0OuIXrGwRleSSyk'
+    sheet = client.open_by_key(sheet_id).sheet1
+    return sheet
+
+
+def add_data_to_sheet(data):
+    try:
+        sheet = get_google_sheet()
+        sheet.append_row(data)
+        return "Data added successfully to Google Sheets"
+    except Exception as e:
+        return f"Error adding data to Google Sheets: {str(e)}"
+
+
+def add_data_to_sheet_speech():
+    try:
+        # Ask the user for data related to each column
+        prompts = ["What should be the date?", "What is your D. S. A. Topic?",
+                   "How many D. S. A. questions should be solved?",
+                   "How many DSA questions have you solved?",
+                   "What is the priority level for DSA?",
+                   "What is your study subject?",
+                   "Which module u are studying?",
+                   "What is the priority level for that subject?",
+                   "What is the status of your study?"]
+
+        data_to_add = []
+        for prompt in prompts:
+            speak.speak(prompt)
+            user_input = takeCommand()
+            data_to_add.append(user_input)
+
+        response = add_data_to_sheet(data_to_add)
+        speak.speak(response)
+        return response
+    except Exception as e:
+        return f"Error adding data to Google Sheets: {str(e)}"
 
 def square_spiral():
     pyautogui.click() 
