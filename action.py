@@ -16,6 +16,78 @@ from time import sleep
 from config import key
 import requests
 
+def square_spiral():
+    pyautogui.click() 
+    # initialising a variable distance 
+    distance = 200
+  
+  
+    while (distance): 
+        # moves the cursor to the right 
+        pyautogui.dragRel(distance, 0, duration=0.2) 
+        distance = distance - 20
+        # move the cursor down 
+        pyautogui.dragRel(0, distance, duration=0.2) 
+        # move the cursor to the left 
+        pyautogui.dragRel(-distance, 0, duration=0.2) 
+        distance = distance - 20
+        # move the cursor up 
+        pyautogui.dragRel(0, -distance, duration=0.2)
+
+def drawSquare():
+
+    # Make a delay of 2 sec 
+    time.sleep(2) 
+    pyautogui.click() 
+    l = 200  # initialising variable l 
+    a = 4  # initialising variable a 
+  
+    pyautogui.dragRel(200, 0, 0.1) 
+    a -= 1
+    pyautogui.dragRel(0, 200, 0.1) 
+    a -= 1
+    pyautogui.dragRel(-200, 0, 0.1) 
+    a -= 1
+    pyautogui.dragRel(0, -200, 0.1) 
+    a -= 1
+
+def drawHouse():
+    time.sleep(5) 
+    pyautogui.click()  # using .click() method to click 
+    l = 200
+    a = 4
+    x, y = pyautogui.position() 
+  
+    # making a square first 
+  
+    pyautogui.dragRel(200, 0, 0.2) 
+    x1, y1 = pyautogui.position() 
+    a -= 1
+    pyautogui.dragRel(0, 200, 0.2) 
+    a -= 1
+    pyautogui.dragRel(-200, 0, 0.2) 
+    a -= 1
+    pyautogui.dragRel(0, -200, 0.2) 
+    a -= 1
+  
+    # making a triangle over the square 
+    pyautogui.click(x, y) 
+    pyautogui.dragRel(100, -100, 0.2) 
+    pyautogui.click(x1, y1) 
+    pyautogui.dragRel(-100, -100, 0.2) 
+  
+    # making rest of the body of the hut 
+    pyautogui.dragRel(350, 0, 0.2) 
+    pyautogui.dragRel(0, 300, 0.2) 
+    pyautogui.dragRel(-290, 0, 0.2) 
+    pyautogui.click(x1, y1) 
+    pyautogui.dragRel(250, 0, 0.2) 
+
+def move_cursor():
+    height = 1920
+    width = 1080
+    pyautogui.moveTo(height / 2, width / 2)
+
 def takeCommand():
     #It takes microphone input from the user and returns string output
 
@@ -311,6 +383,39 @@ def Action(send) :
         keyboard.press('enter')
         sleep(0.5)  
         return True
+
+    elif "draw square spiral" in data_btn:
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('paint')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        move_cursor()
+        sleep(0.5)
+        square_spiral()
+
+    elif "draw square" in data_btn:
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('paint')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        move_cursor()
+        sleep(0.5)
+        drawSquare()
+
+    elif "draw house" in data_btn:
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('paint')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        move_cursor()
+        sleep(0.5)
+        drawHouse()
 
     else :
         try:
