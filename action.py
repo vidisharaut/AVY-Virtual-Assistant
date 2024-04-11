@@ -228,7 +228,6 @@ def Action(send) :
         speak.speak("songs playing...")
         return "songs playing..."       
  #9   
-    #Vidisha's changes: 
     elif "shutdown" in data_btn:       #Execution Successful
         speak.speak("Shuting Down")
         os.system("shutdown /s /t 5")
@@ -287,6 +286,10 @@ def Action(send) :
         return text
 #19
     elif 'maximize this window' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         text = 'Maximizing this window'
         speak.speak(text)
         pyautogui.hotkey('alt', 'space')
@@ -294,46 +297,94 @@ def Action(send) :
         pyautogui.press('x')
         return text
 #20
-    elif 'google search' in data_btn:       #Execution Successful but need to clear history
+    elif 'google search' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         data_btn = data_btn.replace("google search", "")
         pyautogui.hotkey('alt', 'd')
         pyautogui.write(f"{data_btn}", 0.1)
         pyautogui.press('enter')
 #21
     elif 'open new window' in data_btn:       #Execution Successful 
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'n')
 
 #22
     elif 'open incognito window' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'shift', 'n')
 #23
     elif 'minimise this window' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('alt', 'space')
         time.sleep(1)
         pyautogui.press('n')
 #24
     elif 'open history' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'h')
 #25
     elif 'open downloads' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'j')
 #26
     elif 'previous tab' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'shift', 'tab')
 #27
     elif 'next tab' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'tab')
 #28
     elif 'close tab' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'w')
 #29
     elif 'close window' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'shift', 'w')
 #30
     elif 'clear browsing history' in data_btn:       #Execution Successful 
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         pyautogui.hotkey('ctrl', 'shift', 'delete')
 #31
     elif 'close chrome' in data_btn:       #Execution Successful
+        pyautogui.hotkey('alt', 'esc')
+        move_cursor()
+        pyautogui.click() 
+        sleep(1)
         os.system("taskkill /f /im chrome.exe")
 #32
     # elif "take screenshot" in data_btn:
@@ -419,6 +470,11 @@ def Action(send) :
         move_cursor()
         sleep(0.5)
         drawHouse()
+    #45
+    elif "open a file" in data_btn:
+        pyautogui.hotkey('alt', 'esc')
+        sleep(1)
+        pyautogui.hotkey('ctrl', 'o')
 
 #12
     elif "open" in data_btn:
@@ -430,6 +486,16 @@ def Action(send) :
         keyboard.press('enter')
         sleep(0.5)  
         return True
+    #43
+    elif "save this file" in data_btn:
+        pyautogui.hotkey('alt', 'esc')
+        sleep(1)
+        pyautogui.hotkey('ctrl', 's')
+#44
+    elif "new file" or "new tab" in data_btn:
+        pyautogui.hotkey('alt', 'esc')
+        sleep(1)
+        pyautogui.hotkey('ctrl', 'n')
         
 #41
     elif "make a note":
@@ -442,8 +508,6 @@ def Action(send) :
         speak.speak('What to note?')
         text = takeCommand()
         pyautogui.write(text) 
-
-
         
     elif "update to do list" in data_btn:
         response = add_data_to_sheet_speech()
@@ -452,14 +516,8 @@ def Action(send) :
     elif "show me my progress" in data_btn:
         show_tableau_dashboard()
         return "Opening Tableau dashboard..."
-
     else :
-        try:
-            res = chat1(data_btn)
-            speak.speak(res);
-            return res;
-        except Exception as e:
-            speak.speak( "i'm unable to understand!")
-            return "i'm unable to understand!" 
+        speak.speak( "i'm unable to understand!")
+        return "i'm unable to understand!"
         
 
