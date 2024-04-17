@@ -689,6 +689,16 @@ def Action(send) :
         move_cursor()
         sleep(3)
         draw_hexagon(800,600,100)
+    elif "draw triangle" in data_btn:
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('paint')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        move_cursor()
+        sleep(0.5)
+        draw_triangle()
 
     elif "draw circle" in data_btn:
         pyautogui.press('win')
