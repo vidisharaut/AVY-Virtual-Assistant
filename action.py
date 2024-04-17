@@ -143,6 +143,41 @@ def drawHouse():
     pyautogui.click(x1, y1) 
     pyautogui.dragRel(250, 0, 0.2) 
 
+def draw_hexagon(center_x, center_y, side_length):
+    # Calculate the coordinates of the vertices of the hexagon
+    vertices = []
+    for i in range(6):
+        angle_deg = 60 * i
+        angle_rad = math.radians(angle_deg)
+        x = center_x + side_length * math.cos(angle_rad)
+        y = center_y + side_length * math.sin(angle_rad)
+        vertices.append((x, y))
+    
+    # Move the mouse to the first vertex
+    pyautogui.moveTo(vertices[0])
+    
+    # Draw the hexagon
+    for vertex in vertices[1:]:
+        pyautogui.dragTo(vertex, duration=0.1)
+    
+    # Close the shape by dragging to the first vertex
+    pyautogui.dragTo(vertices[0], duration=0.1)
+
+def draw_circle(center_x, center_y, radius):
+    # Calculate points along the circle using the parametric equations
+    points = []
+    for angle in range(0, 380, 10):
+        x = 500 + center_x + int(radius * math.cos(math.radians(angle)))
+        y = 300 + center_y + int(radius * math.sin(math.radians(angle)))
+        points.append((x, y))
+    
+    # Move the mouse to the starting point
+    pyautogui.moveTo(points[0])
+    
+    # Draw the circle
+    for point in points:
+        pyautogui.dragTo(point, duration=0.05)
+
 def move_cursor():
     height = 1920
     width = 1080
@@ -646,6 +681,28 @@ def Action(send) :
         text = takeCommand()
         pyautogui.write(text) 
         return "noted"
+
+    elif "draw hexagon" in data_btn:
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('paint')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        move_cursor()
+        sleep(3)
+        draw_hexagon(800,600,100)
+
+    elif "draw circle" in data_btn:
+        pyautogui.press('win')
+        sleep(1)
+        keyboard.write('paint')
+        sleep(2)
+        keyboard.press('enter')
+        sleep(0.5)
+        move_cursor()
+        sleep(0.5)
+        draw_circle(300,300,100)
     
     elif "news" in data_btn:
         ans = NewsRead.latestnews() 
