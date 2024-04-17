@@ -296,10 +296,6 @@ def Action(send) :
         os.system("shutdown /s /t 5")
         return "ok sir" 
 #10
-    # elif "lock the system" in data_btn:       #Execution Successful
-    #     speak.speak("Locking the system...")
-    #     os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
-    #     return "System Locked" 
     elif "lock the system" in data_btn:
         speak.speak("Locking the system...")
         ctypes.windll.user32.LockWorkStation()
@@ -556,16 +552,6 @@ def Action(send) :
         
         
 #32
-    # elif "take screenshot" in data_btn:
-    #         speak.speak("Sir, Please tell me the name for the screenshot file")
-    #         name = takeCommand()
-    #         print(name)
-    #         speak.speak("Taking Screenshot...!")
-    #         time.sleep(2)
-    #         img = pyautogui.screenshot()
-    #         img.save(f"{name}.png")
-    #         speak.speak("ScreenShot Saved...!")
-    #         return "ScreenShot Saved...!"
     elif "take screenshot" in data_btn:
         speak.speak("Please select the folder where you want to save the screenshot.")
         folder_path = filedialog.askdirectory()
@@ -661,14 +647,8 @@ def Action(send) :
         pyautogui.hotkey('alt', 'esc')
         sleep(1)
         pyautogui.hotkey('ctrl', 's')
-#44
-    elif "new file" or "new tab" in data_btn:
-        pyautogui.hotkey('alt', 'esc')
-        sleep(1)
-        pyautogui.hotkey('ctrl', 'n')
            
-#41
-           
+#41        
     elif "update to do list" in data_btn:
         response = add_data_to_sheet_speech()
         return response
@@ -725,8 +705,11 @@ def Action(send) :
         ans = NewsRead.latestnews() 
         speak.speak(ans)
         return "Here are the latest news articles."
-
-    # Your existing code...
+    #44
+    elif "new file" or "new tab" in data_btn:
+        pyautogui.hotkey('alt', 'esc')
+        sleep(1)
+        pyautogui.hotkey('ctrl', 'n')
 
     else:
         speak.speak("I'm unable to understand!")
