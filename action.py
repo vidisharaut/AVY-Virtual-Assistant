@@ -173,7 +173,7 @@ def takeCommand():
 
 def chat1(chat):
     messages = []
-    system_message = "You are an AI Virtual Assistant Project created by Vidisha, Yakuta, Akshada and guided by Prajakta Ma'am, your name is AVY. You respond like humans."
+    system_message = "You are an AI Virtual Assistant Project created by Yakuta, Akshada, Vidisha and guided by Prajakta Ma'am, your name is AVY. You respond like humans."
     message = { "role" : "user", "parts" : [{"text":'give me the answer of ' + system_message + " " + chat +  'in one sentence' }]}
     messages.append(message)
     data = {'contents' : messages}
