@@ -27,6 +27,7 @@ import json
 import pyttsx3
 import threading
 import NewsRead
+import math
 
 def get_google_sheet():
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -93,6 +94,25 @@ def square_spiral():
         distance = distance - 20
         # move the cursor up 
         pyautogui.dragRel(0, -distance, duration=0.2)
+def draw_triangle():            #U+pdate
+    # Make a delay of 2 sec
+    time.sleep(2)
+
+    pyautogui.click()
+    l = 200  # initializing variable l
+    a = 3  # number of sides in a triangle
+
+    # Draw the first side
+    pyautogui.dragRel(l, 0, 0.3)
+    a -= 1
+
+    # Draw the second side
+    pyautogui.dragRel(-l/2, -l*(3**0.5)/2, 0.3)
+    a -= 1
+
+    # Draw the third side
+    pyautogui.dragRel(-l/2, l*(3**0.5)/2, 0.3)
+    a -= 1
 
 def drawSquare():
 
@@ -183,8 +203,6 @@ def move_cursor():
     width = 1080
     pyautogui.moveTo(height / 2, width / 2)
 
-
-
 def takeCommand():
     #It takes microphone input from the user and returns string output
 
@@ -204,7 +222,6 @@ def takeCommand():
         print("Say that again please...")  
         return "None"
     return query
-
 
 def chat1(chat):
     messages = []
