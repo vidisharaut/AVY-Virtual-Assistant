@@ -2,13 +2,46 @@
 
 AVY-AI is an advanced virtual assistant designed to simplify your daily tasks and provide you with the latest information through voice commands. It features schedule management, news updates, smart home control, and more.
 
-## Features
+## Task performed 
 
-- **Voice Recognition**: Understands and processes voice commands.
-- **Schedule Management**: Manages your appointments, reminders, and events.
-- **News Updates**: Fetches and reads the latest news articles from various sources.
-- **Weather Updates**: Provides current weather information.
-- and much more...
+### Key Windows Tasks
+
+- **Time Display**: Display the current time.
+- **Open Google**: Launch the Google homepage.
+- **Open YouTube**: Open the YouTube website.
+- **Play Music**: Access the Gaana website to play music.
+- **Weather**: Provide weather information.
+- **Shutdown**: Initiate system shutdown.
+- **Lock System**: Lock the user’s system.
+- **Close Applications**: Close Command Prompt, Notepad, Microsoft Word, Microsoft Excel, and Microsoft PowerPoint.
+- **Open Chrome**: Launch Google Chrome browser.
+- **Maximize/Minimize/Close Windows**: Manipulate window states (maximize, minimize, close).
+- **Google Search**: Perform a Google search.
+- **Open Application**: Open specified applications.
+- **Close Chrome**: Close the Google Chrome browser.
+- **Take a Screenshot**: Capture and save screenshots.
+- **Volume Control**: Adjust system volume (up, down, mute).
+
+### Automation Tasks
+
+- **Chrome Automation**: Opening, managing, and terminating Chrome browser sessions.
+- **YouTube Automation**: Navigating to YouTube and playing music or videos.
+- **Paint Automation**: Drawing shapes like square spirals, squares, and houses in Paint.
+- **Notepad Automation**: Creating notes based on user input.
+
+### Personalization Tasks
+
+- **Greet User**: Respond to user greetings.
+- **Thank User**: Acknowledge user gratitude.
+- **Update To-Do List**: Add data to a Google Sheets-based to-do list.
+- **Show Progress**: Display user progress using a Tableau dashboard.
+- **Chat Interaction**: Engage in conversation using a generative language model.
+- **Make Note**: Open Notepad and take notes based on user input.
+
+### Conversational AI
+
+- **Gemini API Integration**: Utilize the Gemini API to generate responses to user queries in both text and speech formats.
+- **News API Integration**: Fetches and reads the latest news articles from various sources.
 
 ## Installation
 
@@ -16,7 +49,7 @@ AVY-AI is an advanced virtual assistant designed to simplify your daily tasks an
 
 - Python 3.x
 - pip (Python package installer)
-- Required Python libraries: `speech_recognition`, `pyttsx3`, `requests`, `flask`, `openai`
+- Required Python libraries: `speech_recognition`, `pyttsx3`, `requests`, `flask`, etc.
 
 ### Steps
 
@@ -40,30 +73,6 @@ AVY-AI is an advanced virtual assistant designed to simplify your daily tasks an
     pip install -r requirements.txt
     ```
 
-## Usage
-
-1. Start the AVY-AI application:
-
-    ```bash
-    python main.py
-    ```
-
-2. Interact with AVY-AI through voice commands:
-
-    - "What's the news?"
-    - "Set a reminder for my meeting at 10 AM."
-    - "Turn off the living room lights."
-    - "What's the weather like today?"
-
-## Configuration
-
-To customize AVY-AI, edit the `config.json` file. Here, you can set your preferences for:
-
-- **News API Key and Sources**: Configure your news API key and preferred news sources.
-- **Weather API Key and Location**: Set your weather API key and location.
-- **Smart Home Device Configurations**: Add and configure your smart home devices.
-- **Additional Plugins and Modules**: Include and configure additional plugins for extended functionality.
-
 ### Sample `config.json`
 
 ```json
@@ -72,9 +81,21 @@ To customize AVY-AI, edit the `config.json` file. Here, you can set your prefere
     "news_sources": ["source1", "source2"],
     "weather_api_key": "your_weather_api_key",
     "location": "your_location",
-    "smart_home": {
-        "device1": "configuration1",
-        "device2": "configuration2"
-    },
-    "plugins": ["plugin1", "plugin2"]
+
 }
+```
+## Troubleshooting
+
+### Common Issues
+
+- **No response to voice commands**: Ensure your microphone is working and properly configured. Check the voice recognition library documentation for troubleshooting tips.
+- **Error fetching news**: Verify that your API keys in `config.json` are correct and that you have internet connectivity.
+
+### Debugging
+
+Run the application with verbose logging to see detailed output:
+
+```bash
+python main.py --verbose
+
+
