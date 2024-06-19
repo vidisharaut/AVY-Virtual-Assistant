@@ -56,8 +56,8 @@ AVY-AI is an advanced virtual assistant designed to simplify your daily tasks an
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/avy-ai.git
-    cd avy-ai
+    git clone [https://github.com/yourusername/avy-ai.git
+    cd avy-ai](https://github.com/vidisharaut/AVY-Virtual-Assistant.git)
     ```
 
 2. Create and activate a virtual environment:
